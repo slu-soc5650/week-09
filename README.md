@@ -10,6 +10,9 @@ This repository contains files for:
 -   `README.md`
 -   `.gitignore`
 
+## Lecture Content
+You can find links to the YouTube video lectures for this week in the [course jotter](https://github.com/slu-soc5650/Core-Documents/wiki/Week-09).
+
 ## About SOC 4650/5650: Introduction to Geographic Information Science
 
 This class introduces both the theoretical and technical skills that constitute the nascent field of Geographic Information Science (GISc). Techniques introduced include data cleaning and management, map production and cartography, and the manipulation of both tabular and spatial data. The impacts of GISc on public policy, and the effects of public policy on GISc, are also discussed. The course incorporates a wide variety of social, economic, health, urban, meteorological, and environmental data. These data are mapped at a variety of extents, from the City of St. Louis to the St. Louis Metropolitan region, Missouri, all United States counties, and all U.S. states.
