@@ -8,3 +8,5 @@ r:
 
 os:
   - osx
+
+script:
