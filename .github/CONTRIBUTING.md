@@ -14,13 +14,13 @@ identify where the typo is.
 
 ### Suggestions
 Suggested modifications to the course content, such as items that are unclear,
-key terms to add to the [`REFERENCE.md`](./references/REFERENCE.md) file,
+key terms to add to the [`REFERENCE.md`](../references/REFERENCE.md) file,
 or suggestions about additional resources that could be provided (such as links
 to outside content), are all welcome. Please open an issue describing your
 suggestion.
 
 ## Before Opening an Issue
-Before opening a new issue, be sure to [search issues and pull requests](https://github.com/tidyverse/usethis/issues)
+Before opening a new issue, be sure to [search issues and pull requests](https://github.com/slu-soc5650/lecture-09/issues)
 to make sure the bug or typo hasn't been reported and/or already fixed.
 Similarly, search to make sure someone has not already made a suggestion. If
 there is a suggestion and you want to express support for it, please comment
