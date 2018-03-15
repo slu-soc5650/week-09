@@ -16,9 +16,10 @@ Imports:
     rmarkdown,
     sf,
     ggplot2,
-    tidycensus,
-    tigris,
     here,
     dplyr,
-    readr
-Remotes: tidyverse/ggplot2
+    readr,
+    stlData
+Remotes: 
+    chris-prener/stlData,
+    tidyverse/ggplot2
