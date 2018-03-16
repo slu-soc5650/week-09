@@ -37,7 +37,7 @@ library(sf)    # spatial data tools
 Load Data
 ---------
 
-We'll use two data sets from the `stlData` package to practice table joines: census tract geometric data and asthma rate tabular data:
+We'll use two data sets from the `stlData` package to practice table joins: census tract geometric data and asthma rate tabular data. Both are added here:
 
 ``` r
 library(stlData)
@@ -105,7 +105,7 @@ class(tracts$GEOID)
 
     ## [1] "character"
 
-The output from `class()` tells us that it is a character variable. We could also visually assess this by pulling down the `tract` object in our global enviornment tab and looking for the `GEOID` variable. After the colon next to it will be an indicator of the type of data the variable contains. In this case we see `chr`, meaning it contains character data. This is sometimes inpractical in large data sets, however. We can also use `dplyr`'s `glimpse()` function to get similar output:
+The output from `class()` tells us that it is a character variable. We could also visually assess this by pulling down the `tract` object in our global environment tab and looking for the `GEOID` variable. After the colon next to it will be an indicator of the type of data the variable contains. In this case we see `chr`, meaning it contains character data. This is sometimes impractical in large data sets, however. We can also use `dplyr`'s `glimpse()` function to get similar output:
 
 ``` r
 glimpse(tracts)
