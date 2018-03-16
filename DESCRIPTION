@@ -11,10 +11,12 @@ License: GPL-3
 Web: https://slu-soc5650.github.io
 URL: https://github.com/slu-soc5650/lecture-09
 BugReports: https://github.com/slu-soc5650/lecture-09/issues
-Imports:
+Imports: 
     knitr,
     rmarkdown,
     sf,
     here,
     dplyr,
-    readr
+    readr,
+    stlData
+Remotes: chris-prener/stlData
