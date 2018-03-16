@@ -1,0 +1,95 @@
+---
+title: "Lecture 09 Notebook"
+author: "Christopher Prener, Ph.D."
+date: '(`r format(Sys.time(), "%B %d, %Y")`)'
+output: 
+  github_document: default
+  html_notebook: default 
+---
+
+## Introduction
+This is the lecture notebook for Lecture-09 from the course SOC 4650/5650: Introduction to GISc.
+
+## Load Dependencies
+The following code loads the package dependencies for our analysis:
+
+```{r package-load}
+library(dplyr) # data wrangling
+library(sf)    # spatial data tools
+```
+
+## Load Data
+We'll use two data sets from the `stlData` package to practice table joines: census tract geometric data and asthma rate tabular data:
+
+```{r load-data}
+library(stlData)
+tracts <- stl_sf_tracts
+asthma <- stl_tbl_asthma
+```
+
+## Table Joins
+### Data Exploration
+Before we undertake a table join, we need to make sure we have two identically *formatted* identification variables. We also need to note whether or not they are identically *named*. We'll start by printing the `tracts` object:
+
+```{r preview-tracts}
+tracts
+```
+
+The `GEOID` variable is present in all census data and in *most* data sets that are meant to correspond to census geography (this is generally true but I have seen exceptions where the `GEOID` variable needs to be constructed by the researcher). Let's assess what type of variable format it has:
+
+```{r assess-tracts-geoid1}
+class(tracts$GEOID)
+```
+
+The output from `class()` tells us that it is a character variable. We could also visually assess this by pulling down the `tract` object in our global enviornment tab and looking for the `GEOID` variable. After the colon next to it will be an indicator of the type of data the variable contains. In this case we see `chr`, meaning it contains character data. This is sometimes inpractical in large data sets, however. We can also use `dplyr`'s `glimpse()` function to get similar output:
+
+```{r assess-tracts-geoid2}
+glimpse(tracts)
+```
+
+With `glimpse()`, we are looking for column after the variable name. In this case, we know we have character data because we see `<chr>` after the variable name.
+
+Now lets explore the `asthma` object:
+
+```{r preview-asthma}
+asthma
+```
+
+The `asthma` object has a *similarly* named variable `geoID` that contains the same FIPS code data as `GEOID` in `tract`. We'll use this variable for our table join. We need to make sure it is also character data. We can assess this using the same tools we've already discussed. For simplicity, I'll use `class()` here:
+
+```{r assess-asthma-geoid}
+class(asthma$geoID)
+```
+
+This confirms that we have character data as well. If it came back as numeric data, the following code would allow us to convert it to character:
+
+```r
+asthma <- mutate(asthma, geoID = as.character(geoID))
+```
+
+Similarly, we could convert it to numeric (assuming there were not letters or special characters in the values) using:
+
+```r
+asthma <- mutate(asthma, geoID = as.numeric(geoID))
+```
+
+### Performing the Join
+Now that we know we can complete the join, we'll use `dplyr`'s `left_join()` function:
+
+```{r complete-join}
+asthma_sf <- left_join(x = tracts, y = asthma, by = c("GEOID" = "geoID"))
+```
+
+We can explore how the data have changed using `glimpse()`:
+
+```{r assess-join}
+glimpse(asthma_sf)
+```
+
+The variables from `tract` appear first because `tract` was the `x` table in our `left_join()`, and the variables from `asthma` appear second because it was the `y` variable. Note that `GEOID` only appears once.
+
+If both `tract` and `asthma` had identically named `GEOID` variables, we could have used this simplified syntax:
+
+```r
+asthma_sf <- left_join(x = tract, y = asthma, by = "GEOID")
+```
