@@ -17,8 +17,9 @@ At the end of this lecture and its corresponding assignments, students should be
 2. Use `dplyr` to complete table joins in `R`
 3. Use `sf` to combine geometric data in `R`
 4. Compose `R` notebooks that import multiple data sets, appropriately combine them, and then export them in the proper format.
-5. Use ArcMap to complete spatial joins
-6. Use ArcMap to calculate and project the centroids 
+5. Distinguish between different types of spatial joins
+6. Use ArcMap to complete spatial joins
+7. Use ArcMap to calculate and project the centroids
 
 ### Lecture Resources
 
@@ -34,7 +35,7 @@ usethis::use_course("https://github.com/slu-soc5650/lecture-09/archive/master.zi
 ```
 
 ### Support and Feedback
-Students currently enrolled in this course should seek assistance on Slack and/or during in-person office hours before posting questions or reporting possible bugs. Others should see my general policy on [support](.github/SUPPORT.md). If you have found a typo or have a suggestion, please check the [contribution guidelines](.github/CONTRIBUTING.md) guidelines before opening an issue. Please note that contributions to this project are goverened by a [Contributor Code of Conduct](.github/CODE_OF_CONDUCT.md) and, for Saint Louis University community members, our various University policies. 
+Students currently enrolled in this course should seek assistance on Slack and/or during in-person office hours before posting questions or reporting possible bugs. Others should see my general policy on [support](.github/SUPPORT.md). If you have found a typo or have a suggestion, please check the [contribution guidelines](.github/CONTRIBUTING.md) guidelines before opening an issue. Please note that contributions to this project are goverened by a [Contributor Code of Conduct](.github/CODE_OF_CONDUCT.md) and, for Saint Louis University community members, our various University policies.
 
 ## About SOC 4650 & 5650: Introduction to GIS
 ### Course Description
