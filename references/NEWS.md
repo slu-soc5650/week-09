@@ -1,6 +1,7 @@
 # lecture-09 v18.2.1
 
-* point data for lab and problem set added
+* point data for lab and problem set added (statewide hospitals and WIC offices, city-wide public schools and federally funded community health centers)
+* polygon data added for lab (diabetes rates at the tract level for St. Louis)
 
 # lecture-09 v18.2.0
 
