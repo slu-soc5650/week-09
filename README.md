@@ -15,17 +15,17 @@ At the end of this lecture and its corresponding assignments, students should be
 
 1. Distinguish between table and spatial joins
 2. Use `dplyr` to complete table joins in `R`
-3. Use `sf` to combine geometric data in `R`
-4. Compose `R` notebooks that import multiple data sets, appropriately combine them, and then export them in the proper format.
-5. Distinguish between different types of spatial joins
-6. Use ArcMap to complete spatial joins
-7. Use ArcMap to calculate and project the centroids
+3. Compose `R` notebooks that import multiple data sets, appropriately combine them, and then export them in the proper format.
+4. Distinguish between different types of spatial joins
+5. Use ArcMap to complete spatial joins
+6. Use ArcMap to calculate and project the centroids
 
 ### Lecture Resources
 
 * The [lecture webpage](https://slu-soc5650.github.io/lecture-09) contains links to resources as well as the corresponding videos for this lecture
 * The [`SETUP.md`](/references/SETUP.md) file in the [`references/`](/references) directory contains a list of packages required for this lecture
 * The [`references/`](/references) directory also contains other notes on changes to the repository, key topics, terms, data sources, and software. Some of this information is a duplicate of material on the course website.
+* The [`data/`](/data) directory contains additional data for the lab and the problem set, see [`NEWS`](/references/DATA.md) for descriptions of each file.
 
 ### Access Lecture
 Students in my course should clone this repository into their course folder system. Others can quickly download this lecture to their `Desktop` using `usethis`:
