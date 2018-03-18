@@ -1,3 +1,7 @@
+# lecture-09 v18.2.1
+
+* point data for lab and problem set added
+
 # lecture-09 v18.2.0
 
 * add slides, functions handout, and example code
