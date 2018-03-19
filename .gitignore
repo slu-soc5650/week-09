@@ -78,3 +78,6 @@ vignettes/*.pdf
 *.utf8.md
 *.knit.md
 .Rproj.user
+
+# .Rbuildignore - not needed for lectures/lessons
+.Rbuildignore
