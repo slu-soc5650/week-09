@@ -2,6 +2,7 @@
 
 * add spatial joins examples in `extras/` for those interested in completing joins using `R`
 * add centroids example in `extras/` for those interested in calculating centroids using `R`
+* add lab-08 handout
 * add lab-08-replication files and notebook
 * updates `DESCRIPTION` and `SETUP.md` with additional packages from spatial joins and labs notebooks
 * adds spatial joins, centroids, and lab notebooks to CI testing
