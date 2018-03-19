@@ -32,13 +32,25 @@ stlEdu <- st_read(here("data", "STL_EDU_Public", "STL_EDU_Public.shp"), stringsA
 ```
 
 ## Fix Projection
-We cannot complete spatial joins using `sf` unless the coordinate systems are identical. We haven't covered fixing this yet, but we'll make the adjustment before continuing. 
+We cannot complete spatial joins using `sf` unless the coordinate systems are identical. We haven't covered fixing this yet, but we'll make the adjustment before continuing. We haven't covered fixing this yet, but we'll make the adjustment before continuing. We can see the current coordinate system by using the `st_crs()` function:
+
+```{r check-crs-edu}
+st_crs(stlEdu)
+```
+
+The EPSG value `26915` is the UTM 15N *projected* coordinate system.
+
+```{r check-crs-tracts}
+st_crs(stlTracts)
+```
+
+The EPSG value `4269` is NAD 1983, which is a *geographic* coordinate system. We'll convert our `stlEdu` data to the NAD 1983 system for this notebooks:
 
 ```{r fix-proj}
 stlEdu <- st_transform(stlEdu, crs = 4269)
 ```
 
-We'll cover the mechanics of how this works next week!
+We now have `stlEdu` data that we can use for spatial joins. We'll cover the mechanics of how this works next week!
 
 ## Spatial Joins
 In class, we covered three types of spatial joins. `sf` has tools that allows you to complete two of these three joins: polygon to point and point to polygon. Unfortunately, there is not an accessible way to complete point to point spatial joins at this time. 
@@ -93,7 +105,7 @@ ggplot() +
 ```
 
 ## Simplifying Point to Polygon Joins
-We can write a simple function that simplies the implementation:
+We can write a simple function that simplifies the implementation:
 
 ```{r simplify-point-to-poly}
 st_count <- function(polygon, points, countVar){
