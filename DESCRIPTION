@@ -1,13 +1,13 @@
 Package: lecture-09
 Title: SOC 4650/5650 - Lecture 09 - Spatial Joins
-Version: 18.2.1
+Version: 18.2.2
 Authors@R: person("Christopher", "Prener", email = "chris.prener@slu.edu",
                   role = c("aut", "cre"))
 Description: This is the repository for Lecture 09 of the Saint Louis University
     course SOC 4650/5650 - Introduction to GIS. This lecture covers techniques
-    for joining tabular and geometric data using R and ArcGIS.
+    for table joins using R and spatial joins using ArcGIS.
 Depends: R (>= 3.3)
-License: GPL-3
+License: CC-BY-SA-4.0 + LICENSE
 Web: https://slu-soc5650.github.io
 URL: https://github.com/slu-soc5650/lecture-09
 BugReports: https://github.com/slu-soc5650/lecture-09/issues
@@ -18,5 +18,11 @@ Imports:
     here,
     dplyr,
     readr,
-    stlData
-Remotes: chris-prener/stlData
+    stlData,
+    ggplot2,
+    assertthat,
+    RColorBrewer,
+    viridis
+Remotes: 
+    chris-prener/stlData,
+    tidyverse/ggplot2
