@@ -1,0 +1,118 @@
+---
+title: "Lecture 09 Extras - Spatial Joins in R"
+author: "Christopher Prener, Ph.D."
+date: '(`r format(Sys.time(), "%B %d, %Y")`)'
+output: 
+  github_document: default
+  html_notebook: default 
+---
+
+## Introduction
+This is an extra notebook for Lecture-09 from the course SOC 4650/5650: Introduction to GISc. It introduces spatial joins in `R`, which were not covered in class.
+
+## Load Dependencies
+The following code loads the package dependencies for our analysis:
+
+```{r package-load}
+library(assertthat)    # comparison testing
+library(ggplot2)       # data plotting
+library(dplyr)         # data wrangling
+library(here)          # file path management
+library(RColorBrewer)  # color ramps
+library(sf)            # spatial data tools
+```
+
+## Load Data
+We'll use one data set from the `stlData` package and one from this week's mini data release to practice spatial joins: census tract geometric data and the locations of public schools. Both are added here:
+
+```{r load-data}
+library(stlData)
+stlTracts <- stl_sf_tracts
+stlEdu <- st_read(here("data", "STL_EDU_Public", "STL_EDU_Public.shp"), stringsAsFactors = FALSE)
+```
+
+## Fix Projection
+We cannot complete spatial joins using `sf` unless the coordinate systems are identical. We haven't covered fixing this yet, but we'll make the adjustment before continuing. 
+
+```{r}
+stlEdu <- st_transform(stlEdu, crs = 4269)
+```
+
+We'll cover the mechanics of how this works next week!
+
+## Spatial Joins
+In class, we covered three types of spatial joins. `sf` has tools that allows you to complete two of these three joins: polygon to point and point to polygon. Unfortunately, there is not an accessible way to complete point to point spatial joins at this time. 
+
+### Polygon to Point
+The more straightforward of the two joins are the polygon to point joins. These are joins where we want to apply the attributes of a polygon to each point within it. We can use `st_join()` to complete this task:
+
+```{r}
+schoolsWithTract <- st_join(stlEdu, stlTracts)
+```
+
+The first of the two `sf` objects (in this case `stlEdu`) should always be your point data, and the second (in this case `stlTracts`) should contain your polygon data. What we get is a combined data set with **all** of the attributes from `stlTracts` appended to the appropriate schools:
+
+```{r}
+glimpse(schoolsWithTract)
+```
+
+This is a messy data frame. Often, what we really need are just the identification variables (in this case `TRACTCE` or `GEOID`), so we are better off using `select()` to reduce the variables down to only what is needed:
+
+```{r}
+stlTracts %>%
+  select(GEOID) %>%
+  st_join(stlEdu, .) -> schoolsWithTract
+```
+
+By using `st_join()` within a pipe, and referencing where we want the `stlTracts` data included using `.`, we can cut down our tracts data that will be added to `stlEdu` to the bare minimum:
+
+```{r}
+glimpse(schoolsWithTract)
+```
+
+This is still an extensive data set, but is more manageable than one created with `st_join()` alone!
+
+### Point to Polygon 
+This type of join, giving us a count of the number of schools per census tract, is a bit more difficult to implement. We need three functions layered within each other to accomplish this:
+
+* `st_covers(polygon, points)` returns a count of the number of `points` within each `polygon` as a list
+* `length()` converts the list to a vector
+* `mutate()` allows us to append this vector to our existing `sf` object
+
+```{r}
+schoolsByTract <- mutate(stlTracts, schools = lengths(st_covers(stlTracts, stlEdu)))
+```
+
+We can "check" the results of this join by layering schools over the count data:
+
+```{r}
+ggplot() +
+  geom_sf(data = schoolsByTract, mapping = aes(fill = schools), color = "#5d5d5d") +
+  geom_sf(data = stlEdu) +
+  scale_fill_distiller(palette = "Greens", trans = "reverse")
+```
+
+## Simplifying Point to Polygon Joins
+We can write a simple function that simplies the implementation:
+
+```{r}
+st_count <- function(polygon, points, countVar){
+  
+  newData <- mutate(polygon, count = lengths(st_covers(polygon, points)))
+  
+}
+```
+
+The `function()` function creates our new function `st_count()`. We articulate two arguments to be called: `polygon` (the `sf` polygon object) and `points` (the `sf` points object). Then, in the body of the function, we replicate our `mutate()` call from above, but we insert the argument names (`polygon` and `points`) as variables. We'll keep things simple and create a new variable called `count` each time.
+
+```{r}
+functionTest <- st_count(polygon = stlTracts, points = stlEdu)
+```
+
+We can use the `are_equal()` function from `assertthat` to demonstrate that the data created by our function are equal to the data created manually with `mutate()` previously:
+
+```{r}
+are_equal(schoolsByTract$schools,functionTest$count)
+```
+
+Since this returns `TRUE`, we have replicated our earlier effort!
