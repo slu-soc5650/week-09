@@ -31,7 +31,8 @@ At the end of this lecture and its corresponding assignments, students should be
 ### Extra Materials
 The following are extra materials that go further on particular topics. They are **not required** for students enrolled in this course, but they provide additional materials for those who are interested.
 
-* The `extras/` directory contains some examples of processes for completing spatial joins in `R` using the `sf` and `dplyr` packages. 
+* The [`extras/`](/extras) directory contains some examples of processes for completing spatial joins in `R` using the `sf` and `dplyr` packages. 
+* There is also a short notebook in [`extras/`](/extras) that illustrates the steps for calculating polygon centroids in `R` using the `sf` package.
 
 ### Access Lecture
 Students in my course should clone this repository into their course folder system. Others can quickly download this lecture to their `Desktop` using `usethis`:
