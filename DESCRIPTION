@@ -22,7 +22,8 @@ Imports:
     ggplot2,
     assertthat,
     RColorBrewer,
-    viridis
+    viridis, 
+    ggthemes
 Remotes: 
     chris-prener/stlData,
     tidyverse/ggplot2

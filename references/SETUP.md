@@ -15,6 +15,7 @@ The following packages are required for this lecture. See the [package index](ht
     * not available on CRAN, install from [GitHub](https://github.com/chris-prener/stlDatas)
 
 ### Design
+* `ggthemes` - `ggplot2` themes
 * `RColorBrewer` - color palettes
 * `viridis` - color palettes
 
