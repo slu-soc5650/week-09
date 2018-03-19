@@ -1,3 +1,8 @@
+# lecture-09 v18.3.0
+
+* add PS-05 handout
+* update arcgis process handout
+
 # lecture-09 v18.2.2
 
 * add spatial joins examples in `extras/` for those interested in completing joins using `R`
