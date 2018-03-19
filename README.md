@@ -26,6 +26,7 @@ At the end of this lecture and its corresponding assignments, students should be
 * The [`SETUP.md`](/references/SETUP.md) file in the [`references/`](/references) directory contains a list of packages required for this lecture
 * The [`references/`](/references) directory also contains other notes on changes to the repository, key topics, terms, data sources, and software. Some of this information is a duplicate of material on the course website.
 * The [`data/`](/data) directory contains additional data for the lab and the problem set, see [`NEWS`](/references/DATA.md) for descriptions of each file.
+* The `assignments/` directory contains instructions for both Lab 08 and Lecture Prep 08 as well as the replication files for the Lab.
 
 ### Extra Materials
 The following are extra materials that go further on particular topics. They are **not required** for students enrolled in this course, but they provide additional materials for those who are interested.
