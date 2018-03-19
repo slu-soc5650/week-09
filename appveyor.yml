@@ -48,6 +48,7 @@ build_script:
 
 test_script:
   - Rscript -e "rmarkdown::render('examples/lecture-09.Rmd')"
+  - Rscript -e "rmarkdown::render('extras/lecture-09-extras-joins.Rmd')"
 
 on_failure:
   - 7z a failure.zip *.Rcheck\*
