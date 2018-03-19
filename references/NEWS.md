@@ -1,3 +1,9 @@
+# lecture-09 v18.2.2
+
+* add spatial joins examples in `extras/` for those interested in completing joins using `R`
+* updates `DESCRIPTION` and `SETUP.md` with additional packages from spatial joins notebook
+* adds spatial joins notebook to CI testing
+
 # lecture-09 v18.2.1
 
 * point data for lab and problem set added (statewide hospitals and WIC offices, city-wide public schools and federally funded community health centers)
