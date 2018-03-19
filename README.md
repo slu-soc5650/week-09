@@ -8,7 +8,7 @@ lecture-09 <img src="https://slu-soc5650.github.io/images/logo.png" align="right
 [![Travis-CI Build Status](https://travis-ci.org/slu-soc5650/lecture-09.svg?branch=master)](https://travis-ci.org/slu-soc5650/lecture-09)
 [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/slu-soc5650/lecture-09?branch=master&svg=true)](https://ci.appveyor.com/project/chris-prener/lecture-09)
 
-This is the repository for Lecture 09 of the Saint Louis University course SOC 4650/5650 - Introduction to GIS. This lecture covers techniques for joining tabular and geometric data using R and ArcGIS.
+This is the repository for Lecture 09 of the Saint Louis University course SOC 4650/5650 - Introduction to GIS. This lecture covers techniques for for table joins using R and spatial joins using ArcGIS.
 
 ### Lecture Objectives
 At the end of this lecture and its corresponding assignments, students should be able to:
@@ -26,6 +26,11 @@ At the end of this lecture and its corresponding assignments, students should be
 * The [`SETUP.md`](/references/SETUP.md) file in the [`references/`](/references) directory contains a list of packages required for this lecture
 * The [`references/`](/references) directory also contains other notes on changes to the repository, key topics, terms, data sources, and software. Some of this information is a duplicate of material on the course website.
 * The [`data/`](/data) directory contains additional data for the lab and the problem set, see [`NEWS`](/references/DATA.md) for descriptions of each file.
+
+### Extra Materials
+The following are extra materials that go further on particular topics. They are **not required** for students enrolled in this course, but they provide additional materials for those who are interested.
+
+* The `extras/` directory contains some examples of processes for completing spatial joins in `R` using the `sf` and `dplyr` packages. 
 
 ### Access Lecture
 Students in my course should clone this repository into their course folder system. Others can quickly download this lecture to their `Desktop` using `usethis`:
