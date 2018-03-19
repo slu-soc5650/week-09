@@ -12,5 +12,6 @@ os:
 script:
   - Rscript -e "rmarkdown::render('assignments/lab-08/lab-08-replication/docs/lab-08-replication.Rmd')"
   - Rscript -e "rmarkdown::render('examples/lecture-09.Rmd')"
+  - Rscript -e "rmarkdown::render('extras/lecture-09-extras-centroids.Rmd')"
   - Rscript -e "rmarkdown::render('extras/lecture-09-extras-joins.Rmd')"
   
